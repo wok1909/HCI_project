@@ -49,3 +49,50 @@ Sever : 24 / 7 always activated which run our code unstoppable
 Flutter : a frame work which work with dart code and developing ios and android application simultaneously
 
 ```
+
+### 4-4 Run
+
+1. git clone
+
+`git clone https://github.com/wok1909/HCI_project.git`
+
+1. download git submodules
+
+`git submodule update --init --recursive`
+
+1. Download pytorch-ssd models and pretrained parameters through github page.
+
+link : https://github.com/qfgaohao/pytorch-ssd
+
+1. Run Demo (Using Recorded video)
+    1. Prepare a video at `HCI_project/demo`
+    2. Run `HCI_project/demo/demo.sh`
+
+1. Run Live (Using Youtube Live Stream)
+    1. Prepare a live youtube stream link
+    2. Put the link in the shell script code and run
+    
+    ```c
+    #!/bin/bash
+    
+    rm -f /home/c02002/HCI_project/live/input.jpg
+    
+    youtube-dl -g -f 95 "YOUTUBE_LIVE_LINK" > ../videos/stream-url
+    ffmpeg -i $(cat ../videos/stream-url) -f image2 -frames:v 1 /home/c02002/HCI_project/live/input.jpg
+    
+    python /home/c02002/HCI_project/pytorch-ssd/run_ssd_db.py \
+    			 mb1-ssd \
+    			 /home/c02002/HCI_project/pytorch-ssd/models/mobilenet-v1-ssd-Epoch-99-Loss-2.2184619531035423.pth \
+    			 /home/c02002/HCI_project/pytorch-ssd/models/open-images-model-labels.txt \
+    			 /home/c02002/HCI_project/live/input.jpg \
+    			 /home/c02002/HCI_project/live/output.jpg
+    ```
+    
+
+- Changing the number of total parking lot
+    - Change the number of `totalSpace` or you can change the `placeIndex`  in `run_ssd_db.py`
+
+```c
+totalSpace = [15, 20, 35, 50]
+placeIndex = 0
+```
