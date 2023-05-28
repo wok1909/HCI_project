@@ -1,3 +1,6 @@
 [submodule "pytorch-ssd"]
 	path = pytorch-ssd
 	url = https://github.com/qfgaohao/pytorch-ssd.git
+[submodule "hci_parking"]
+	path = hci_parking
+	url = https://github.com/AnJW-HGU/2023_HCI_Parking.git
