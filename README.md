@@ -6,6 +6,11 @@
 김종순 박두현 안지원 옥준용 우옥균 임건호
 ```
 
+## 2. Representative image (대표 이미지)
+
+![logo.PNG](https://github.com/wok1909/HCI_project/blob/main/logo.PNG.png)
+
+
 ## 3. Background
 
 ### 3-1 problems
